@@ -13,6 +13,7 @@ namespace EMAutomation
     public class EditorMainMenu
     {
         private IWebDriver Driver { get; set; }
+        internal EditorialMainPage EditorialMPage { get; private set; }
         internal TestUser TheTestUser { get; set; }
 
         [TestMethod, Description(
@@ -22,11 +23,11 @@ namespace EMAutomation
         {
             TheTestUser.UserType = UserRole.Editor;
             // verifying Editorial Manager page  opens 
-            var editorialPage = new EditorialMainPage(Driver);
-            editorialPage.GoTo();
-            editorialPage.LoginLink();
+            
+            EditorialMPage.GoTo();
+            EditorialMPage.LoginLink();
             // verifying the users can login 
-            var userLoginAccountPage = editorialPage.FilloutAndUserLogin(TheTestUser);
+            var userLoginAccountPage = EditorialMPage.FilloutAndUserLogin(TheTestUser);
             Assert.IsTrue(userLoginAccountPage.IsVisible, "User Account -  Unable to login");
             
         }
@@ -40,11 +41,11 @@ namespace EMAutomation
 
             TheTestUser.UserType = UserRole.Author;
             // verifying Editorial Manager page  opens 
-            var editorialPage = new EditorialMainPage(Driver);
-            editorialPage.GoTo();
-            editorialPage.LoginLink();
+         
+            EditorialMPage.GoTo();
+            EditorialMPage.LoginLink();
             // verifying the users can login 
-            var userLoginAccountPage = editorialPage.FilloutAndUserLogin(TheTestUser);
+            var userLoginAccountPage = EditorialMPage.FilloutAndUserLogin(TheTestUser);
             Assert.IsTrue(userLoginAccountPage.IsVisible, "User Account -  Unable to login");
 
         }
@@ -57,11 +58,11 @@ namespace EMAutomation
         {
             TheTestUser.UserType = UserRole.Reviewer;
             // verifying Editorial Manager page  opens 
-            var editorialPage = new EditorialMainPage(Driver);
-            editorialPage.GoTo();
-            editorialPage.LoginLink();
+            
+            EditorialMPage.GoTo();
+            EditorialMPage.LoginLink();
             // verifying the users can login 
-            var userLoginAccountPage = editorialPage.FilloutAndUserLogin(TheTestUser);
+            var userLoginAccountPage = EditorialMPage.FilloutAndUserLogin(TheTestUser);
             Assert.IsTrue(userLoginAccountPage.IsVisible, "User Account -  Unable to login");
 
         }
@@ -73,11 +74,11 @@ namespace EMAutomation
         {
             TheTestUser.UserType = UserRole.Publisher;
             // verifying Editorial Manager page  opens 
-            var editorialPage = new EditorialMainPage(Driver);
-            editorialPage.GoTo();
-            editorialPage.LoginLink();
+            
+            EditorialMPage.GoTo();
+            EditorialMPage.LoginLink();
             // verifying the users can login 
-            var userLoginAccountPage = editorialPage.FilloutAndUserLogin(TheTestUser);
+            var userLoginAccountPage = EditorialMPage.FilloutAndUserLogin(TheTestUser);
             Assert.IsTrue(userLoginAccountPage.IsVisible, "User Account -  Unable to login");
 
         }
@@ -93,6 +94,8 @@ namespace EMAutomation
         public void SetUpForEveryTestMethod()
         {
             Driver = GetChromeDriver();
+            EditorialMPage = new EditorialMainPage(Driver);
+
             TheTestUser = new TestUser
             {
                 Username = "mary",
