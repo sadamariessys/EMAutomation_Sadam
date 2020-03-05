@@ -23,7 +23,6 @@ namespace EMAutomation
         {
             TheTestUser.UserType = UserRole.Editor;
             // verifying Editorial Manager page  opens 
-            
             EditorialMPage.GoTo();
             EditorialMPage.LoginLink();
             // verifying the users can login 
@@ -41,7 +40,6 @@ namespace EMAutomation
 
             TheTestUser.UserType = UserRole.Author;
             // verifying Editorial Manager page  opens 
-         
             EditorialMPage.GoTo();
             EditorialMPage.LoginLink();
             // verifying the users can login 
@@ -58,7 +56,6 @@ namespace EMAutomation
         {
             TheTestUser.UserType = UserRole.Reviewer;
             // verifying Editorial Manager page  opens 
-            
             EditorialMPage.GoTo();
             EditorialMPage.LoginLink();
             // verifying the users can login 
@@ -74,7 +71,6 @@ namespace EMAutomation
         {
             TheTestUser.UserType = UserRole.Publisher;
             // verifying Editorial Manager page  opens 
-            
             EditorialMPage.GoTo();
             EditorialMPage.LoginLink();
             // verifying the users can login 
